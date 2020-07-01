@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import { X_RAPIDAPI_KEY } from "./keys";
+import CovidStatsTotal from "./CovidStatsTotal";
 
 export default function GetData(props) {
   const [covidData, setCovidData] = useState([]);
@@ -34,6 +35,7 @@ export default function GetData(props) {
         "x-rapidapi-key": X_RAPIDAPI_KEY,
       },
     });
+    console.log(res.data);
     setCovidData(res.data.response);
   }
 
@@ -41,6 +43,7 @@ export default function GetData(props) {
     <div>
       <h1>Data here</h1>
       {covidData.length}
+      <CovidStatsTotal covidData={covidData} />
     </div>
   );
 }
