@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import { X_RAPIDAPI_KEY } from "./keys";
 import CovidStatsTotal from "./CovidStatsTotal";
+import CovidBarChart from "./CovidBarChart";
 
 export default function GetData(props) {
   const [covidData, setCovidData] = useState([]);
@@ -43,6 +44,7 @@ export default function GetData(props) {
     <div>
       <h1>Data here</h1>
       {covidData.length}
+      <CovidBarChart covidData={covidData} count={10} />
       <CovidStatsTotal covidData={covidData} />
     </div>
   );
