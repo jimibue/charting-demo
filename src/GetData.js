@@ -51,7 +51,9 @@ export default function GetData(props) {
       <List
         header="Covid stats by country"
         data={covidData}
-        renderItem={(item) => <CovidCard country={item} />}
+        renderItem={(item) => (
+          <CovidCard key={`th-${Math.random()}`} country={item} />
+        )}
       />
     </div>
   );
