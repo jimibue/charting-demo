@@ -3,8 +3,8 @@ import Axios from "axios";
 import { X_RAPIDAPI_KEY } from "./keys";
 import CovidStatsTotal from "./CovidStatsTotal";
 import CovidBarChart from "./CovidBarChart";
-import XListDemo from "./XListDemo";
-import XCountryCard from "./XCountryCard";
+import List from "./customComponents/List";
+import CovidCard from "./customComponents/CovidCard";
 
 export default function GetData(props) {
   const [covidData, setCovidData] = useState([]);
@@ -48,10 +48,10 @@ export default function GetData(props) {
       {covidData.length}
       <CovidBarChart covidData={covidData} count={10} />
       {/* <CovidStatsTotal covidData={covidData} /> */}
-      <XListDemo
-        header="Covid Data"
+      <List
+        header="Covid stats by country"
         data={covidData}
-        renderItem={(country) => <XCountryCard country={country} />}
+        renderItem={(item) => <CovidCard country={item} />}
       />
     </div>
   );

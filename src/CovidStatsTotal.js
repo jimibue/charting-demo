@@ -1,27 +1,10 @@
 import React from "react";
+import CovidCard from "./customComponents/CovidCard";
 
 export default function CovidStatsTotal({ covidData }) {
   function formatData() {
     return covidData.map((country) => {
-      return (
-        <div style={styles.container}>
-          <h1>{country.country}</h1>
-          <div style={styles.statsContainer}>
-            <div style={styles.statContainer}>
-              <div style={styles.statHeader}>Total Cases</div>
-              <div style={styles.statValue}>{country.cases.total}</div>
-            </div>
-            <div style={styles.statContainer}>
-              <div style={styles.statHeader}>Total Deaths</div>
-              <div style={styles.statValue}>{country.deaths.total}</div>
-            </div>
-            <div style={styles.statContainer}>
-              <div style={styles.statHeader}>Total Test</div>
-              <div style={styles.statValue}>{country.tests.total}</div>
-            </div>
-          </div>
-        </div>
-      );
+      return <CovidCard country={country} />;
     });
   }
   return <div style={styles.listContainer}>{formatData()}</div>;
